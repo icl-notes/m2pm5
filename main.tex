@@ -194,7 +194,7 @@ Let $(X,d)$ be a metric space, and let $f, g:X \to \mathbb{R}$ be continuous map
 \end{itemize}
 
 \begin{flushleft}
-If $f:X \to \mathbb{R}/\{0\}$ then $\frac{1}{f}$ is continuous.
+If $f:X \to \mathbb{R}\setminus\{0\}$ then $\frac{1}{f}$ is continuous.
 \end{flushleft}
 
 \end{cor}
@@ -451,7 +451,7 @@ $A'$ is closed in $X$.
 \end{lem}
 
 \begin{proof}
-We need to show that $U = X / A'$ is open (i.e. the complement is open). Take any $x \in U$. Suppose that there is no $r$ such that $B_r(x) \subset U$. Then for any $r > 0$, $B_r(x)$ contains a point of $A'$ - either a point in $A$ or a limit point of $A$. Take $r = \frac{1}{n}$. Then $\exists a_n \in A'$ such that $d(x,a_n) < \frac{1}{n}$. If $a_n \in A$, then write $b_n = a_n$. If $a_n \not\in A$ i.e. $a_n$ is a limit point of $A$, then $\exists b_n \in A$ such that $d(a_n, b_n) < \frac{1}{n}$ by definition of a limit point. Then $d(b_n, x) \le d(x,a_n) + d(a_n, b_n) < \frac{2}{n}$. So the sequence $(b_n)$ converges to $x$. But the $b_n$ are elements of $A$ hence $x$ is a limit point of $A$ and cannot be in the complement of $A'$, so contradiction.
+We need to show that $U = X \setminus A'$ is open (i.e. the complement is open). Take any $x \in U$. Suppose that there is no $r$ such that $B_r(x) \subset U$. Then for any $r > 0$, $B_r(x)$ contains a point of $A'$ - either a point in $A$ or a limit point of $A$. Take $r = \frac{1}{n}$. Then $\exists a_n \in A'$ such that $d(x,a_n) < \frac{1}{n}$. If $a_n \in A$, then write $b_n = a_n$. If $a_n \not\in A$ i.e. $a_n$ is a limit point of $A$, then $\exists b_n \in A$ such that $d(a_n, b_n) < \frac{1}{n}$ by definition of a limit point. Then $d(b_n, x) \le d(x,a_n) + d(a_n, b_n) < \frac{2}{n}$. So the sequence $(b_n)$ converges to $x$. But the $b_n$ are elements of $A$ hence $x$ is a limit point of $A$ and cannot be in the complement of $A'$, so contradiction.
 \end{proof}
 
 \begin{lem}\label{lem b clos}
@@ -459,7 +459,7 @@ If $Z \subset X$ is a closed subset containing $A$, then $Z$ contains the limit 
 \end{lem}
 
 \begin{proof}
-Take $x$ to be a limit point of $A$. For a contradiction suppose that $Z \subset X$ is closed, $A \subset Z$ but $x \not\in Z$. Hence $x \in X / Z$ which is an open subset of $X$. So there is some $r > 0$ such that $B_r(x) \subset X/Z \subset X/A$. This implies that this open ball contains no elements of $A$, however this contradicts $x$ being a limit point.
+Take $x$ to be a limit point of $A$. For a contradiction suppose that $Z \subset X$ is closed, $A \subset Z$ but $x \not\in Z$. Hence $x \in X \setminus Z$ which is an open subset of $X$. So there is some $r > 0$ such that $B_r(x) \subset X \setminus Z \subset X \setminus A$. This implies that this open ball contains no elements of $A$, however this contradicts $x$ being a limit point.
 \end{proof}
 
 \begin{defn}[Density]
@@ -498,7 +498,7 @@ This is also equivalent to the set of all points in $A$ of which an open ball ca
 \end{defn}
 
 \begin{rem}
-There is a "dual notion" to the closure and the interior: \[X / \interior{A} = \overline{X / A}\]
+There is a "dual notion" to the closure and the interior: \[X \setminus \interior{A} = \overline{X \setminus A}\]
 \end{rem}
 
 \begin{prop}[Properties of the interior]
@@ -519,7 +519,7 @@ Left as an exercise. Can use the "dual notion" and the properties of the closure
 \subsubsection{Boundary}
 
 \begin{defn}[Boundary]
-Let $A \subset (X,d)$. The boundary of $A$ is defined as \[\delta A = \overline{A} / \interior{A}\]
+Let $A \subset (X,d)$. The boundary of $A$ is defined as \[\delta A = \overline{A} \setminus \interior{A}\]
 \end{defn}
 
 \begin{exmp}
@@ -527,7 +527,7 @@ Let $A = \Q$, $X = \R$ and $d$ be the usual notion of distance. Then $\overline{
 \end{exmp}
 
 \begin{rem}
-Left as an exercise, we can also define the boundary of $A$ as \[\delta A = \{x \in X \; | \; \forall \epsilon > 0 \; : \; B_{\epsilon}(x) \text{ contains a point of } A \text{ and a point of } X / A\}\]
+Left as an exercise, we can also define the boundary of $A$ as \[\delta A = \{x \in X \; | \; \forall \epsilon > 0 \; : \; B_{\epsilon}(x) \text{ contains a point of } A \text{ and a point of } X \setminus A\}\]
 \end{rem}
 
 \subsection{Sequences}
@@ -630,11 +630,11 @@ Take $\tau = \{\emptyset, X\}$. Then all the axioms hold.
 \end{exmp}
 
 \begin{exmp}[Cofinite topology]
-Take $X$ to be any set. Call $U \subset X$ open if $X / U$ is finite (also define $\emptyset$ to be open). Then $X / X = \emptyset$ is finite. 
+Take $X$ to be any set. Call $U \subset X$ open if $X \setminus U$ is finite (also define $\emptyset$ to be open). Then $X \setminus X = \emptyset$ is finite. 
 
-Take $U, V \in \tau$. Then $U \cap V$ is open iff $X / (U \cap V)$ is finite. $X / (U \cap V) = (X / U) \union (X / V)$ and the union of two finite sets is finite.
+Take $U, V \in \tau$. Then $U \cap V$ is open iff $X \setminus (U \cap V)$ is finite. $X \setminus (U \cap V) = (X \setminus U) \union (X \setminus V)$ and the union of two finite sets is finite.
 
-Take $U_i \in \tau$. The $X / (\Union_{i \in I} U_i) = \Cap_{i \in I} X / U_i$ is the intersection of finite sets which is finite.
+Take $U_i \in \tau$. The $X \setminus (\Union_{i \in I} U_i) = \Cap_{i \in I} X \setminus U_i$ is the intersection of finite sets which is finite.
 \end{exmp}
 
 \begin{note}
