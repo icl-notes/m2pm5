@@ -537,7 +537,7 @@ Let $(X,d)$ be a metric space, and let $x \in X$. A sequence $(x_n)_{n=1}^{\inft
 \end{defn}
 
 \begin{prop}[Well-defined limits]
-Let $(X,d)$ be a metric space, and $(x_n)$ be a sequence of points. Suppose that $x,y \in X$ such that $x_n \to X$ and $x_n \to Y$. Then $x=y$.
+Let $(X,d)$ be a metric space, and $(x_n)$ be a sequence of points. Suppose that $x,y \in X$ such that $x_n \to x$ and $x_n \to y$. Then $x=y$.
 \end{prop}
 
 \begin{proof}
@@ -545,7 +545,7 @@ Assume $x \ne y$. Then $d(x,y) \ne 0$. Take $\epsilon = \frac{1}{2} d(x,y)$. The
 \end{proof}
 
 \begin{prop}
-Let $A \subset (X,d)$ and let $x \in X$. If there is a sequence $(a_n)$ of elements of $A$ such that $a_n \to X$, then $x \in \overline{A}$.
+Let $A \subset (X,d)$ and let $x \in X$. If there is a sequence $(a_n)$ of elements of $A$ such that $a_n \to x$, then $x \in \overline{A}$.
 \end{prop}
 
 \begin{proof}
@@ -569,7 +569,7 @@ A convergent sequence is a Cauchy sequence.
 \end{prop}
 
 \begin{proof}
-Same as real analysis, who could've guessed. Apparently an exercise. God taking this course was a good idea.
+Left as an exercise.
 \end{proof}
 
 \begin{note}
@@ -735,7 +735,7 @@ Let $f: X \to Y$ be a map. Let $\tau_X$ be a topology on $X$, and $\tau_Y$ a top
 \begin{proof}
 $\rightarrow$ This is clear by the definition of a continuous map.
 
-$\leftarrow$ Let $U \subset Y$ be any open set. Then $U = \Union_{i \in I} U_i$, where $U_i \in B$. Then $f^{-1}(U) = \Union_{i \in I} f^{-1}(U_i)$. We know that $f^{-1}(U_i)$ is open in $X$ by assumption, hence $\Union_{i \in I}f^{-1}(U_i) = f^{-1}(U)$ is open in $X$.
+$\leftarrow$ Let $U \subset Y$ be any open set. Then $U = \Union_{i \in I} U_i$, where $U_i \in \beta$. Then $f^{-1}(U) = \Union_{i \in I} f^{-1}(U_i)$. We know that $f^{-1}(U_i)$ is open in $X$ by assumption, hence $\Union_{i \in I}f^{-1}(U_i) = f^{-1}(U)$ is open in $X$.
 \end{proof}
 
 \begin{defn}
@@ -920,7 +920,7 @@ Combine the topological axioms and the use of complements.
 \end{rem}
 
 \begin{prop}
-    Let $X$ be a topological space, and take $A \subset A$. Let $\tau$ be some topology on $A$. Then $\tau$ is the subspace topology $\tau_A$ precisely when \ref{inclusion continuous iff composition continuous} holds, for every topological space $Z$ and every map $g: Z \to A$.
+    Let $X$ be a topological space, and take $A \subset X$. Let $\tau$ be some topology on $A$. Then $\tau$ is the subspace topology $\tau_A$ precisely when \ref{inclusion continuous iff composition continuous} holds, for every topological space $Z$ and every map $g: Z \to A$.
 \end{prop}
 
 \begin{proof}
@@ -946,7 +946,7 @@ Let $X$ and $Y$ be topological spaces - how could we define a topology on $X \cr
 \end{exmp}
 
 \begin{defn}
-    Let $X, Y$, be topological spaces. Define $\tau$ to be the collection of all unions of the subsets of $X \cross Y$ of the form $U \cross V$ for $U$ in $X$, $V in Y$ open sets i.e. $U \times V$ form a basis for the open subsets of $X \times Y$.
+    Let $X, Y$, be topological spaces. Define $\tau$ to be the collection of all unions of the subsets of $X \cross Y$ of the form $U \cross V$ for $U \in X$, $V \in Y$ open sets i.e. $U \times V$ form a basis for the open subsets of $X \times Y$.
 
     This topology on $X \cross Y$ is called the product topology.
 \end{defn}
@@ -1076,7 +1076,7 @@ It is enough to check that $\Delta^{-1} (U \times V)$ is open - $(U \times V) \c
 \end{proof}
 
 \begin{rem}
-    Every metric space is Hausdorff. Say $x \ne y$, then $d(x,y) \ne 0$, then let $n = \frac{d(x,y)}{2}$ and $B_z(x) \cap B_z(y) = \emptyset$. Therefore a non-Hausdorff topological space cannot have a metric
+    Every metric space is Hausdorff. Say $x \ne y$, then $d(x,y) \ne 0$, then let $n = \frac{d(x,y)}{2}$ and $B_z(x) \cap B_z(y) = \emptyset$. Therefore a non-Hausdorff topological space cannot have a metric.
 \end{rem}
 
 \begin{exmp}
@@ -1100,7 +1100,7 @@ Can we characterise topological spaces which come from metric spaces?
 \begin{prop}[Properties of Hausdorff spaces]
     If $(X, \tau)$ is a Hausdorff space, then for any $x \in X$ we have
     \begin{enumerate}
-        \item $\Intersection_{\text{open}} U_x = \{x\}$
+        \item $\Intersection_{x \in U_x \text{open}} U_x = \{x\}$
         \item $\{x\}$ is a closed subset of $X$
     \end{enumerate}
 \end{prop}
@@ -1120,7 +1120,7 @@ Can we characterise topological spaces which come from metric spaces?
     \begin{itemize}
         \item $T_0:$
         
-        for all $x,y x \ne y$ one of $x,y$ has an open neighbourhood not containing the other point.
+        for all $x,y, x \ne y$ one of $x,y$ has an open neighbourhood not containing the other point.
         \item $T_1:$
         
         for all $x,y$, $x \ne y$ both of $x,y$ have an open neighbourhood not containing the other point.
@@ -1197,7 +1197,7 @@ Can we characterise topological spaces which come from metric spaces?
         \item
         $\impliedby$
         
-        Assume $X,Y$ are Hausdorff. We need to show that if $(x_1,y_1) \ne (x_2, y_2)$ are distinct points in $X \times Y$, then we can separate them by open neighbourhoods. WLOG assume that $x_1 \ne x_2$. Then $\exists U_1, U_2$ open in $X$ with $x_1 \in U_1$, $x_2 \in U_2$ such that $U_1 \intersection U_2 = \emptyset$. Consider $U_2 \times Y$ and $U_1 \times Y$ - these subsets are open in $X \times Y$ by definition. There are no common points between them, otherwise the $x$-coordiantes would also be in common.
+        Assume $X,Y$ are Hausdorff. We need to show that if $(x_1,y_1) \ne (x_2, y_2)$ are distinct points in $X \times Y$, then we can separate them by open neighbourhoods. WLOG assume that $x_1 \ne x_2$. Then $\exists U_1, U_2$ open in $X$ with $x_1 \in U_1$, $x_2 \in U_2$ such that $U_1 \intersection U_2 = \emptyset$. Consider $U_2 \times Y$ and $U_1 \times Y$ - these subsets are open in $X \times Y$ by definition. There are no common points between them, otherwise the $x$-coordina tes would also be in common.
         
         $\implies$
         
@@ -1213,12 +1213,12 @@ Can we characterise topological spaces which come from metric spaces?
     Take the map $(f,g) : X \to Y \times Y$ which sends $x \mapsto (f(x), g(x))$. Then $f = p_1 \circ (f,g)$ and $g = p_2 \circ (f,g)$ using the projection maps commutative diagrams. 
     
     \begin{tikzpicture}
-        \path (0, 0) node(x) {$X$} (2, 0) node(xy) {$X \cross Y$} (2, 1) node(fy) {$Y$} (2, -1) node(gy) {$Y$};
-        \draw[->] (x) -- (xy);
-        \draw[->] (x) -- (fy);
-        \draw[->] (x) -- (gy);
-        \draw[->] (xy) -- node[right] {$f$} (fy);
-        \draw[->] (xy) -- node[right] {$g$} (gy);
+        \path (0, 0) node(x) {$X$} (2, 0) node(yy) {$Y \cross Y$} (2, 1) node(fy) {$Y$} (2, -1) node(gy) {$Y$};
+        \draw[->] (x) -- (yy);
+        \draw[->] (x) -- node[above] {$f$} (fy);
+        \draw[->] (x) -- node[below] {$g$} (gy);
+        \draw[->] (yy) -- node[right] {$p_1$} (fy);
+        \draw[->] (yy) -- node[right] {$p_2$} (gy);
     \end{tikzpicture}
     
     We know that the continuity of $p_1 \circ (f,g)$, $p_2 \circ (f,g)$ imply that $(f,g)$ is continuous. Let $S = (f,g)^{-1}(\Delta(Y))$ be the reverse image of the diagonal - this is the same as $\{x \in X \;|\; f(x) = g(x)\}$.
@@ -1295,7 +1295,7 @@ First we need a lemma to prove this:
 \end{lem}
 
 \begin{proof}[Proof of lemma]
-    Assume that $x,y \in S \implies (x,y) \subset S$. Define $a = \inf(S)$ and $b = \sup(S)$. $S = \Union_{\substack{x \in S \\ y \in S \\ x < y}} (x,y)$. For any $z \in S$ with $z \ne a, b$ $\exists x,y \in S$ such that $z \in (x,y)$, otherwise $z$ would be the $\sup(S)/\inf(S)$. The RHS is equal tp $(a,b)$. Thus, $S$ is an interval $(a,b), [a,b], [a,b)$ or $(a,b]$.
+    Assume that $x,y \in S \implies (x,y) \subset S$. Define $a = \inf(S)$ and $b = \sup(S)$. $S = \Union_{\substack{x \in S \\ y \in S \\ x < y}} (x,y)$. For any $z \in S$ with $z \ne a, b$ $\exists x,y \in S$ such that $z \in (x,y)$, otherwise $z$ would be the $\sup(S)/\inf(S)$. The RHS is equal to $(a,b)$. Thus, $S$ is an interval $(a,b), [a,b], [a,b)$ or $(a,b]$.
 \end{proof}
 
 \begin{proof}[1st proof of proposition]
@@ -1351,7 +1351,7 @@ First we need a lemma to prove this:
 \end{cor}
 
 \begin{lem}
-    Let $X$ be a topological space. Let $A_i, i \in I$ be a family of connected subsets. If $A_i \intersection A_j \ne \emptyset$ whenever $i \ne j$, then $Union_{i \in I} A_j$ is connected.
+    Let $X$ be a topological space. Let $A_i, i \in I$ be a family of connected subsets. If $A_i \intersection A_j \ne \emptyset$ whenever $i \ne j$, then $\Union_{i \in I} A_j$ is connected.
 \end{lem}
 
 \begin{proof}
@@ -1451,8 +1451,8 @@ First we need a lemma to prove this:
     "$x$ connected to $y$ by a continuous path" is an equivalence relation:
     \begin{itemize}
         \item Clearly, $x$ is connected to itself through the constant function $f : [0,1] \to X$.
-        \item If $x ~ y$, then $y ~ x$ by $f(1-t)$.
-        \item If $x ~ y$ and $y ~ z$, then by composition, we have $x ~ z$.
+        \item If $x \sim y$, then $y \sim x$ by $f(1-t)$.
+        \item If $x \sim y$ and $y \sim z$, then by composition, we have $x \sim z$.
     \end{itemize}
     
     The equivalence classes of this form are called connected components of $X$.
@@ -1498,7 +1498,7 @@ This definition of compact sets generalises immediately to metric spaces, but no
     A topological space $X$ is called compact if every open cover of $X$ has a finite subcover.
 \end{defn}
 
-This property expressed that $X$ is "not too large".
+This property expresses that $X$ is "not too large".
 
 \begin{exmp}
     The open interval $(0,1)$ is not compact.
@@ -1548,8 +1548,8 @@ This property expressed that $X$ is "not too large".
     Compactness is preserved over homeomorphisms: if $X$ and $Y$ are homeomorphic topological spaces, then $X$ is compact if and only if $Y$ is compact.
 \end{cor}
 
-\begin{cor}\label{cor metirc maps}
-    Let $X$ be a compact topological space and let $(Y,d)$ be a metric space. Let $f : X \to Y$ be a continuous map. Then the image $f(X)$ if bounded and closed in $Y$. 
+\begin{cor}\label{cor metric maps}
+    Let $X$ be a compact topological space and let $(Y,d)$ be a metric space. Let $f : X \to Y$ be a continuous map. Then the image $f(X)$ is bounded and closed in $Y$. 
 \end{cor}
 
 \begin{cor}
@@ -1557,7 +1557,7 @@ This property expressed that $X$ is "not too large".
 \end{cor}
 
 \begin{proof}
-    By Corollary \ref{cor metirc maps}, $f(C)$ is bounded and closed in $\R$. By completeness of $\R$, $f(C)$ has a supremum and an infimum. These are limit points of $f(C)$. But since $f(C)$ is closed, it contains all of its limit points, so the supremum = maximum and infimum = minimum, which it achieves.
+    By Corollary \ref{cor metric maps}, $f(C)$ is bounded and closed in $\R$. By completeness of $\R$, $f(C)$ has a supremum and an infimum. These are limit points of $f(C)$. But since $f(C)$ is closed, it contains all of its limit points, so the supremum = maximum and infimum = minimum, which it achieves.
 \end{proof}
 
 \begin{prop}
@@ -1595,7 +1595,7 @@ Idea: you need enough open subsets for the Hausdorff property, but you can't hav
     \begin{itemize}
         \item $\impliedby$
         
-        Assume that $X \times Y$ is compact. Consider the projection maps $p_x : X\times Y \to X$ and $p_y : X \times Y \to Y$ - by their definitions they're are continuous. It follows that $p_x(X \times Y) = X$ is compact, and $p_y(X \times Y) = Y$ is compact, since $X \times Y$ is compact.
+        Assume that $X \times Y$ is compact. Consider the projection maps $p_x : X\times Y \to X$ and $p_y : X \times Y \to Y$ - by their definitions they are continuous. It follows that $p_x(X \times Y) = X$ is compact, and $p_y(X \times Y) = Y$ is compact, since $X \times Y$ is compact.
         \item $\implies$
         
         Assume $X, Y$ are compact. We will prove that $X \times Y$ is compact. Let $\{W_i, i \in I\}$ be an open cover of $X \times Y$.
@@ -1664,7 +1664,7 @@ In fact, this equivalence holds for arbitrary metric spaces.
 \end{proof}
 
 \begin{proof}[Proof of theorem $\implies$]
-    Assume $X$ is compact. Let $(x_n)$ be any sequence of elements of $X$. For a contradiction, suppose that for any $x \in X$, the sequence $(x_n)$ has no subsequence converging to $x$. Then $\exists \epsilon_x  > 0$ such that $(x_n) \intersection B_{\epsilon_x}(x)$ is finite by the previous lemma. The open balls $B_{\epsilon_x}(x)$ form a open cover of $X$. It has a finite subcover consisting of the open balls $B_{\epsilon_{x_1}}(x_1), ..., B_{\epsilon_{x_m}}(x_m)$. Hence, there are only finitely many terms of the sequence $(x_n)$ contained in finitely many open balls, which is a contradiction of the infinite sequence $(x_n)$.
+    Assume $X$ is compact. Let $(x_n)$ be any sequence of elements of $X$. For a contradiction, suppose that for every $x \in X$, the sequence $(x_n)$ has no subsequence converging to $x$. Then $\exists \epsilon_x  > 0$ such that $(x_n) \intersection B_{\epsilon_x}(x)$ is finite by the previous lemma. The open balls $B_{\epsilon_x}(x)$ form a open cover of $X$. It has a finite subcover consisting of the open balls $B_{\epsilon_{x_1}}(x_1), ..., B_{\epsilon_{x_m}}(x_m)$. Hence, there are only finitely many terms of the sequence $(x_n)$ contained in finitely many open balls, which is a contradiction of the infinite sequence $(x_n)$.
 \end{proof}
 
 We'll now introduce a so-called "Lebesgue number" of a cover.
@@ -1700,7 +1700,7 @@ If we have the interval $[0,1]$, with the open covering of $U = [0, \frac{3}{4})
 \begin{defn}[Uniformly continuous]
     Let $f: (X, d_x) \to (Y, d_y)$ be a map of metric spaces. Then $f$ is called uniformly continuous if $\forall \epsilon > 0$, $\exists \delta > 0$ such that $f(B_{\delta}(x)) \subset B_\epsilon(f(x))$.
     
-    Equivalently, $\forall \epsilon > 0$, $\delta > 0$ such that if $d_x(x, x') < \delta$ then $d_y(f(x), f(x'))< \epsilon$.
+    Equivalently, $\forall \epsilon > 0$, $\exists \delta > 0$ such that if $d_x(x, x') < \delta$ then $d_y(f(x), f(x'))< \epsilon$.
 \end{defn}
 
 \begin{rem}
@@ -1714,7 +1714,7 @@ If we have the interval $[0,1]$, with the open covering of $U = [0, \frac{3}{4})
 \end{prop}
 
 \begin{proof}
-    $f$ continuous means that $\forall \epsilon$, $\exists \delta_x > 0$ such that $f(B_{\delta_x}(x)) \subset B_{\frac{\epsilon}{2}}(f(x))$. Visibly, the open balls $B_{\delta_x}(x)$ for all $x \in X$ form an open cover of $X$. By Lemma \ref{Existence of Lebesgue}, since compact is the same as sequentially compact for metric spaces, this cover has a Lebesgue number - $\delta > 0$. This means that for any $t \in X$, we have that $B_{\delta}(t) \subset B_{\delta_x}(X)$. Equivalently, for any $t, t' \in X$ such that $d_X(t, t') < \delta$, we have that $t$ and $t'$ are inside $B_{\delta_x}(x)$ for some $x \in X$. Therefore, $d_Y(f(t), f(t')) \le d_Y(f(t), f(x)) + d_Y(f(t'), f(x)) < \frac{\epsilon}{2} + \frac{\epsilon}{2} < \epsilon$.
+    $f$ continuous means that $\forall \epsilon$, $\exists \delta_x > 0$ such that $f(B_{\delta_x}(x)) \subset B_{\frac{\epsilon}{2}}(f(x))$. Visibly, the open balls $B_{\delta_x}(x)$ for all $x \in X$ form an open cover of $X$. By Lemma \ref{Existence of Lebesgue}, since compact is the same as sequentially compact for metric spaces, this cover has a Lebesgue number - $\delta > 0$. This means that for any $t \in X$, we have that $B_{\delta}(t) \subset B_{\delta_x}(X)$. Equivalently, for any $t, t' \in X$ such that $d_X(t, t') < \delta$, we have that $t$ and $t'$ are inside $B_{\delta_x}(x)$ for some $x \in X$. Therefore, $d_Y(f(t), f(t')) \le d_Y(f(t), f(x)) + d_Y(f(t'), f(x)) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$.
 \end{proof}
 
 \subsection{Convergence of function}
@@ -1790,7 +1790,7 @@ WARNING: completeness is not a topological property i.e. preserved over homeomor
  Note that $B_{\epsilon}(x)$ for $d_1$ contains $B_{\frac{\epsilon}{c'}}(x)$ for $d_2$. Similarly, $B_\epsilon(x)$ for $d_2$ contains $B_{c \epsilon}(x)$ for $d_1$. Hence $d_1, d_2$ define the same topology on $X$.
 
 \begin{rem}
-   If $d_1$ and $d_2$ are Lipschitz-equivalent, then $X$ is copmlete for $d_1$ if and only if $X$ is complete for $d_2$.
+   If $d_1$ and $d_2$ are Lipschitz-equivalent, then $X$ is complete for $d_1$ if and only if $X$ is complete for $d_2$.
 \end{rem}
 
 Indeed, consider the identity map  $id: (X, d_1) \to (X, d_2)$. Then $id$ and $id^{-1}$ are both uniformly continuous iff $d_1$ and $d_2$ are Lipschitz-equivalent. Now use proposition \ref{Completeness preserved map}.
@@ -2006,7 +2006,7 @@ Now assume that $X$ is path-connected. We'll attach to $X$ its fundamental group
          \item Assume that $f_0$ and $f_1$ are homotopic. Hence $\exists$ $F : X \times [0,1] \to Y$ with necessary properties. Take $F'(x,t) = F(x, 1-t)$. Then $F'(x,0) = f_1(x)$ and $F'(x,1) = f_0(x)$
          \item Let $f_0$ be homotopic to $f_1$, and $f_1$ be homotopic to $f_2$. Then $\exists F_0, F_1$ homotopies such that $F_0(x,0) = f_0(x)$, $F_0(x, 1) = f_1(x)$ and $F_1(x,0) = f_1(x)$ and $F_1(x,1) = f_2(x)$. Define $F_2: X \times [0,1] \to Y$ as follows:
          \[F_2(x,t) = \begin{cases} F_0(x,2t) &t \in [0, \frac{1}{2}]  \\ F_1(x, 2t-1) &t \in [\frac{1}{2}, 1] \end{cases}\]
-         Then we have $F_2(x,0) = f_0(x)$ and $F_2(x,1) = f_2(x)$. All we need to check is that it is continuous at $F_2(x, \frac{1}{2}$ - both sides limit to the same value $f_1(x)$ from $t$, so we are done.
+         Then we have $F_2(x,0) = f_0(x)$ and $F_2(x,1) = f_2(x)$. All we need to check is that it is continuous at $F_2(x, \frac{1}{2})$ - both sides limit to the same value $f_1(x)$ from $t$, so we are done.
      \end{itemize}
 \end{proof}
 
@@ -2039,7 +2039,7 @@ Now assume that $X$ is path-connected. We'll attach to $X$ its fundamental group
 
 \begin{proof}
      Let $F$ be a homotopy from $f$ to $f'$, and $G$ a homotopy from $g$ to $g'$. Define $H$ as
-     \[H(x,t) = \begin{cases} F(2x, t) &x \in [0, \frac{1}{2}] \\ G(2x-1, t) &t \in [\frac{1}{2}, 1] \end{cases}\]
+     \[H(x,t) = \begin{cases} F(2x, t) &t \in [0, \frac{1}{2}] \\ G(2x-1, t) &t \in [\frac{1}{2}, 1] \end{cases}\]
      This is continuous, as $F(1, t) = G(1, t) = x_0$ for all $t \in [0,1]$.
 \end{proof}
 
@@ -2069,7 +2069,7 @@ $\pi(X, x_0)$ is the fundamental group of $x_0$.
          
          Let $e : [0,1] \to X$ be the constant map - $e(t) = x_0$ for all $t \in [0,1]$. If this is a unit, we must prove that any loop $f$ with base point $x_0$, we have $[f] \circ [e] = [f] = [e] \circ [f]$. We will concentrate on the right-hand side, the left-hand is very similar.
          
-         $[f] \circ [e] = [e \circ f]$. We need to show that $f \circ e$ is homotopic to $f$. Define $F$ as
+         $[f] \circ [e] = [ f]$. We need to show that $f \circ e$ is homotopic to $f$. Define $F$ as
          \[F(x,t) = \begin{cases} f(\frac{2x}{1+t}) &x\in[0,\frac{t+1}{2}] \\ x_0 &x \in [\frac{t+1}{2}, 1]\end{cases}\]
          This linearly deforms $e \circ f$ into $f$, by squeezing the constant part of the loop as $t$ increases. We have $F(x,0) = e \circ f$ and $F(x,1) = f$, so $F$ is a homotopy.
          \item Associativity
